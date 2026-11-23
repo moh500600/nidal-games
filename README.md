@@ -9,7 +9,7 @@ Game library: Django REST backend (PostgreSQL), React web (AR/EN, RTL), Flutter 
     python manage.py createsuperuser
     python manage.py runserver        # admin at /admin/, API at /api/
 Set POSTGRES_* (see .env.example) to use PostgreSQL; otherwise SQLite is used for development.
-Tests: `python manage.py test` (24 tests, also run against PostgreSQL 16).
+Tests: `python manage.py test` (27 tests, also run against PostgreSQL 16).
 
 ## Web
     cd web && npm install && npm run dev   (build: npm run build)
@@ -17,7 +17,7 @@ Tests: `python manage.py test` (24 tests, also run against PostgreSQL 16).
 ## Android
     cd mobile && flutter pub get && flutter analyze && flutter test && flutter build apk --release
 Open Settings in the app and enter your HTTPS backend URL for accounts/sync. Without it the app browses a saved Steam catalog only.
-Gradle on small machines: android/gradle.properties caps heap at 768 MB, 1 worker.
+Gradle on small machines: android/gradle.properties caps heap at 320 MB, 1 worker.
 
 ## Architecture notes
 - Auth: Django session + CSRF (not JWT). Web uses cookies; the Flutter client stores the session/CSRF cookies itself. Use HTTPS in production. Passwords hashed by Django (PBKDF2); login throttled.
